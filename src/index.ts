@@ -76,7 +76,9 @@ server.listen(port, () => {
   console.log(`WebSocket server available at ws://localhost:${port}/ws/chat`);
 
   // Уведомляем о запуске сервера
-  telegramNotifier.notifyInfo(`🚀 LEX Server started on port ${port}`).catch((err) => console.error("Failed to send startup notification:", err));
+  telegramNotifier
+    .notifyInfo(`🚀 LEX Server started on port ${port} Bismillahir Rohmanir Rohim`)
+    .catch((err) => console.error("Failed to send startup notification:", err));
 });
 
 export default app;
