@@ -1,0 +1,46 @@
+# Исключаем node_modules
+node_modules/
+npm-debug.log*
+
+# Исключаем Git и IDE файлы
+.git/
+.gitignore
+.DS_Store
+.vscode/
+.idea/
+
+# Исключаем среды разработки
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Исключаем собранные файлы (они будут пересобираться)
+dist/
+
+# Исключаем локальную базу данных и uploads
+dataBase/
+uploads/
+
+# Исключаем логи
+logs/
+*.log
+
+# Исключаем тестовые файлы
+scripts/
+*.test.js
+*.test.ts
+coverage/
+
+# Исключаем временные файлы
+*.tmp
+*.temp
+.cache/
+
+# Исключаем документацию
+README.md
+docs/
+
+# PM2 файлы
+ecosystem.config.js 

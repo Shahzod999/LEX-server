@@ -11,7 +11,7 @@ export interface WebSocketConfig {
 }
 
 export const defaultWebSocketConfig: WebSocketConfig = {
-  maxConnections: parseInt(process.env.WS_MAX_CONNECTIONS || "10000"),
+  maxConnections: parseInt(process.env.WS_MAX_CONNECTIONS || "15000"),
   maxConnectionsPerUser: parseInt(
     process.env.WS_MAX_CONNECTIONS_PER_USER || "5"
   ),

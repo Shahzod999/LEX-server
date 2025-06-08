@@ -11,6 +11,8 @@ import uploadImages from "./routes/uploadImages";
 import { ChatWebSocketServer } from "./controllers/websocketController"; //new
 import reminderRoutes from "./routes/reminderRoutes";
 import openaiRoutes from "./routes/openaiRoutes";
+import { errorHandler } from "./middleware/errorHandler";
+import { telegramNotifier } from "./utils/telegramNotifier";
 
 dotenv.config();
 
@@ -60,10 +62,22 @@ app.get("/api/websocket/stats", (_req, res) => {
   }
 });
 
+// Health check endpoint
+app.get("/health", (_req, res) => {
+  res.json({ status: "ok", timestamp: new Date().toISOString() });
+});
+
+// Error handling middleware (должен быть последним)
+app.use(errorHandler);
+
 // Start server
 server.listen(port, () => {
   console.log(`Server running on port ${port}`);
   console.log(`WebSocket server available at ws://localhost:${port}/ws/chat`);
+  
+  // Уведомляем о запуске сервера
+  telegramNotifier.notifyInfo(`🚀 LEX Server started on port ${port}`)
+    .catch(err => console.error('Failed to send startup notification:', err));
 });
 
 export default app;
