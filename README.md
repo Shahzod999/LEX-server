@@ -136,3 +136,30 @@ Reminder - напоминания пользователей
     WebSocket статистика (/api/websocket/stats)
     Скрипты нагрузочного тестирования
     Тестирование множественных соединений
+
+
+    на сервере
+
+# Запуск
+
+/opt/lex-server/server/manage.sh start
+
+# Остановка
+
+/opt/lex-server/server/manage.sh stop
+
+# Перезапуск
+
+/opt/lex-server/server/manage.sh restart
+
+# Просмотр логов
+
+/opt/lex-server/server/manage.sh logs
+
+# Обновление из Git
+
+/opt/lex-server/server/manage.sh update
+
+git pull origin main
+
+docker-compose up -d --build
