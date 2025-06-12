@@ -60,6 +60,11 @@ app.get("/privacy", (_req, res) => {
 app.get("/terms-of-use", (_req, res) => {
   res.sendFile(path.join(__dirname, "doc", "termsOfUse.html"));
 });
+
+app.get("/support", (_req, res) => {
+  res.sendFile(path.join(__dirname, "doc", "support.html"));
+});
+
 // WebSocket stats endpoint
 app.get("/api/websocket/stats", (_req, res) => {
   try {
