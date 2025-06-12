@@ -42,7 +42,7 @@ connectDB();
 const chatWS = new ChatWebSocketServer(server);
 
 app.get("/", (_req, res) => {
-  res.send({ message: "nice" });
+  res.sendFile(path.join(__dirname, "doc", "welcomePage.html"));
 });
 
 // API routes
