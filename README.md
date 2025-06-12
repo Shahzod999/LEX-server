@@ -160,6 +160,12 @@ Reminder - напоминания пользователей
 
 /opt/lex-server/server/manage.sh update
 
-git pull origin main
 
+
+
+
+Server
+ssh root@91.99.107.243
+cd /opt/lex-server/server
+git pull origin main
 docker-compose up -d --build

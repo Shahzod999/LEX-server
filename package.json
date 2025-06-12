@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon src/index.ts",
-    "build": "tsc",
+    "build": "tsc && cp -r src/doc dist/",
     "start": "node dist/index.js",
     "clean": "rm -rf dist",
     "db": "mongod --dbpath=./dataBase --port 27017",
