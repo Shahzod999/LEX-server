@@ -13,6 +13,7 @@ import reminderRoutes from "./routes/reminderRoutes";
 import openaiRoutes from "./routes/openaiRoutes";
 import { errorHandler } from "./middleware/errorHandler";
 import { telegramNotifier } from "./utils/telegramNotifier";
+import path from "path";
 
 dotenv.config();
 
@@ -52,6 +53,13 @@ app.use("/api/upload", uploadImages);
 app.use("/api/openai", openaiRoutes);
 app.use("/api/reminder", reminderRoutes);
 
+app.get("/privacy", (_req, res) => {
+  res.sendFile(path.join(__dirname, "doc", "privacy.html"));
+});
+
+app.get("/terms-of-use", (_req, res) => {
+  res.sendFile(path.join(__dirname, "doc", "termsOfUse.html"));
+});
 // WebSocket stats endpoint
 app.get("/api/websocket/stats", (_req, res) => {
   try {
